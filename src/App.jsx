@@ -7,7 +7,7 @@ const C = {
   muted: "#6b6050", danger: "#ff4444", green: "#4ade80", blue: "#60a5fa",
 };
 
-const API = "/api";
+const API = "https://unincarnate-kellie-complexionally.ngrok-free.dev";
 
 const SCAN_STEPS = [
   "📈 Google Trends FR...",
