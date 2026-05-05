@@ -9,6 +9,10 @@ const C = {
 
 const API = "https://unincarnate-kellie-complexionally.ngrok-free.dev";
 
+const HEADERS = {
+  "ngrok-skip-browser-warning": "true",
+};
+
 const SCAN_STEPS = [
   "📈 Google Trends FR...",
   "🇺🇸 Google Trends US...",
@@ -20,35 +24,35 @@ const SCAN_STEPS = [
 
 async function checkBackend() {
   try {
-    const res = await fetch(`${API}/health`, { signal: AbortSignal.timeout(4000) });
+    const res = await fetch(`${API}/health`, { signal: AbortSignal.timeout(4000), headers: HEADERS });
     return res.ok;
   } catch (e) { return false; }
 }
 
 async function fetchTrendsCompare(keywords) {
   try {
-    const res = await fetch(`${API}/trends/compare?keywords=${encodeURIComponent(keywords.join(','))}`);
+    const res = await fetch(`${API}/trends/compare?keywords=${encodeURIComponent(keywords.join(','))}`, { headers: HEADERS });
     return await res.json();
   } catch (e) { return null; }
 }
 
 async function fetchAmazonMovers(category) {
   try {
-    const res = await fetch(`${API}/amazon/movers?category=${category}`);
+    const res = await fetch(`${API}/amazon/movers?category=${category}`, { headers: HEADERS });
     return await res.json();
   } catch (e) { return null; }
 }
 
 async function fetchReddit(query) {
   try {
-    const res = await fetch(`${API}/reddit/search?q=${encodeURIComponent(query)}`);
+    const res = await fetch(`${API}/reddit/search?q=${encodeURIComponent(query)}`, { headers: HEADERS });
     return await res.json();
   } catch (e) { return null; }
 }
 
 async function fetchAli(query) {
   try {
-    const res = await fetch(`${API}/aliexpress/search?q=${encodeURIComponent(query)}`);
+    const res = await fetch(`${API}/aliexpress/search?q=${encodeURIComponent(query)}`, { headers: HEADERS });
     return await res.json();
   } catch (e) { return null; }
 }
