@@ -7,7 +7,7 @@ const C = {
   muted: "#6b6050", danger: "#ff4444", green: "#4ade80", blue: "#60a5fa",
 };
 
-const API = process.env.REACT_APP_API_URL || "https://unincarnate-kellie-complexionally.ngrok-free.dev";
+const API = "/api";
 
 const PATTERN_MAP = {
   geo_delay: { icon: "🌍", color: "#69c9d0", label: "Retard géographique" },
